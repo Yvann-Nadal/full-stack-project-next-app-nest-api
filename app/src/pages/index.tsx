@@ -33,28 +33,32 @@ export default function Home({ dataProduct, dataCategory }: Home) {
   return (
     <div className={styles.container}>
       <Header />
-      <h1>Home</h1>
-      <h2>Products</h2>
-      {lastProducts.map(product => (
-        <div key={product.id}>
-          <h3>{product.title}</h3>
-          <p>{product.price} €</p>
-          <Image src={product.file} width={200} height={200} alt={product.title} />
+      <div className={styles.body}>
+        <h1>Home</h1>
+        <h2>Products</h2>
+        <div className={styles.cards}>
+          {lastProducts.map(product => (
+            <Link href={`/product/${product.id}`} key={product.id}>
+              <h3>{product.title}</h3>
+              <p>{product.price} €</p>
+              <Image src={product.file} width={200} height={200} alt={product.title} />
+            </Link>
+          ))}
         </div>
-      ))}
-      <Link href={"/products"}>
-        <button>voir tout les produits</button>
-      </Link>
-      <br />
-      <h2>Categories</h2>
-      {lastCategories.map(category => (
-        <div key={category.id}>
-          <h3>{category.title}</h3>
-        </div>
-      ))}
-      <Link href={"/categories"}>
-        <button>voir toutes les catégories</button>
-      </Link>
+        <Link href={"/products"}>
+          <button>voir tout les produits</button>
+        </Link>
+        <br />
+        <h2>Categories</h2>
+        {lastCategories.map(category => (
+          <Link href={`/category/${category.id}`} key={category.id}>
+            <h3>{category.title}</h3>
+          </Link>
+        ))}
+        <Link href={"/categories"}>
+          <button>voir toutes les catégories</button>
+        </Link>
+      </div>
       <Footer />
     </div>
   );

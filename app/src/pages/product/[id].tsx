@@ -72,17 +72,20 @@ export default function ProductDetails() {
   return (
     <div className={styles.container}>
       <Header />
-      <h1>Product Details</h1>
-      {product && (
-        <div>
-          <h2>{product.title}</h2>
-          <p>{product.price} €</p>
-          <Image src={product.file} width={200} height={200} alt={product.title} />
-          <Link href={"/cart"}>
-            <button onClick={() => AddToCart()}>add to cart</button>
-          </Link>
-        </div>
-      )}
+      <div className={styles.body}>
+        <h1>Product Details</h1>
+
+        {product && (
+          <div>
+            <h2>{product.title}</h2>
+            <p>{product.price} €</p>
+            <Image src={product.file} width={200} height={200} alt={product.title} />
+            <Link href={"/cart"}>
+              <button onClick={() => AddToCart()}>add to cart</button>
+            </Link>
+          </div>
+        )}
+      </div>
       <Footer />
     </div>
   );

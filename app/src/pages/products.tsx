@@ -28,15 +28,19 @@ export default function Products({ data }: Products) {
   return (
     <div className={styles.container}>
       <Header />
-      <h1>Products</h1>
-      {data.map(product => (
-        <Link href={`/product/${product.id}`} key={product.id}>
-          <h3>{product.title}</h3>
-          <p>{product.price} €</p>
-          <Image src={product.file} width={200} height={200} alt={product.title} />
-          <p> {product.category.title}</p>
-        </Link>
-      ))}
+      <div className={styles.body}>
+        <h1>Products</h1>
+        <div className={styles.cards}>
+          {data.map(product => (
+            <Link href={`/product/${product.id}`} key={product.id}>
+              <h3>{product.title}</h3>
+              <p>{product.price} €</p>
+              <Image src={product.file} width={200} height={200} alt={product.title} />
+              <p> {product.category.title}</p>
+            </Link>
+          ))}
+        </div>
+      </div>
       <Footer />
     </div>
   );

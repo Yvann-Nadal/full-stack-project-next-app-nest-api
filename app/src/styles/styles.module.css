@@ -47,11 +47,43 @@
   height: 100vh;
 }
 
+.body {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 .footer {
+  position: relative;
+  display: flex;
+  justify-content: center;
   background-color: #026a63;
   color: #fff;
   padding: 10px;
   text-align: center;
+}
+
+.footer__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cgv {
+  position: absolute;
+  left: 0;
+  top: 45%;
+  margin-left: 20px;
+  font-size: 20px;
 }
 
 .logo {
