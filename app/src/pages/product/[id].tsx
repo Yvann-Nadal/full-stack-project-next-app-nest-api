@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import styles from "../../styles/styles.module.css";
 import { GetStaticProps } from "next";
 import Link from "next/link";
+import { OrderItem } from "@/type/orderItems.type";
 
 export const getStaticProps: GetStaticProps = async () => {
   const res = await fetch("http://localhost:8000/api/products");
@@ -33,7 +34,7 @@ export async function getStaticPaths() {
 export default function ProductDetails() {
   const { id } = useRouter().query;
   const [product, setProduct] = useState<Product | null>(null);
-  const [orderItem, setOrderItem] = useState({});
+  const [orderItem, setOrderItem] = useState<OrderItem | null>(null);
 
   useEffect(() => {
     if (id) {
@@ -62,11 +63,11 @@ export default function ProductDetails() {
     })
       .then(res => res.json())
       .then(data => setOrderItem(data));
-
-    fetchOrderItems();
-
-    console.log("orderItem :", orderItem);
   };
+
+  fetchOrderItems();
+
+  console.log("orderItem :", orderItem);
 
   return (
     <div className={styles.container}>

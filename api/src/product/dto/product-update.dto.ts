@@ -1,5 +1,6 @@
 import { IsInt, IsString, MinLength } from 'class-validator';
 import { IsFile } from 'nestjs-form-data';
+import { CategoryEntity } from 'src/category/entity/category.entity';
 
 export class ProductUpdateDto {
   @MinLength(3, {
@@ -12,5 +13,5 @@ export class ProductUpdateDto {
   @IsInt()
   price: number;
   @IsInt()
-  categoryId: number;
+  categoryId: CategoryEntity;
 }

@@ -4,6 +4,6 @@ import { Product } from "./products.type";
 export interface OrderItem {
   id: number;
   quantity: number;
-  product_id: Product;
-  order_id: Order;
+  product: Product;
+  order: Order;
 }
