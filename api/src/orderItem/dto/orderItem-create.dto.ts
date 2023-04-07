@@ -4,7 +4,11 @@ import { ProductEntity } from 'src/product/entity/product.entity';
 
 export class OrderItemCreateDto {
   @IsInt()
-  productId: ProductEntity;
-  @IsInt()
   quantity: number;
+
+  @MinLength(1)
+  product: ProductEntity;
+
+  @MinLength(1)
+  order: OrderEntity;
 }

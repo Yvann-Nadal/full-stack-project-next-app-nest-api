@@ -30,6 +30,6 @@ export class ProductEntity {
   @ManyToOne(() => CategoryEntity, (category) => category.products)
   category: CategoryEntity;
 
-  @OneToMany(() => OrderItemEntity, (orderItem) => orderItem.productId)
+  @OneToMany(() => OrderItemEntity, (orderItem) => orderItem.product)
   orderItems: OrderItemEntity;
 }

@@ -18,7 +18,7 @@ export class OrderItemService {
 
   async getAllOrderItems(): Promise<OrderItemEntity[]> {
     return await this.orderItemRepository.find({
-      relations: ['orderId', 'productId'],
+      relations: ['order', 'product'],
     });
   }
 
@@ -33,7 +33,7 @@ export class OrderItemService {
   async getOneOrderItemById(id: number): Promise<OrderItemEntity | null> {
     return await this.orderItemRepository.findOne({
       where: { id },
-      relations: ['orderId', 'productId'],
+      relations: ['order', 'product'],
     });
   }
 
@@ -44,7 +44,7 @@ export class OrderItemService {
     // on récupère l'orderitem ciblé
     const orderItem = await this.orderItemRepository.findOne({
       where: { id },
-      relations: ['orderId', 'productId'],
+      relations: ['order', 'product'],
     });
     // on "merge" les données du body de la requête
     // avec les données déjà présentes dans l'orderitem

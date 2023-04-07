@@ -23,7 +23,7 @@ export class OrderEntity {
   @CreateDateColumn({ type: 'timestamp' })
   createdAt: Date;
 
-  @OneToMany(() => OrderItemEntity, (orderItem) => orderItem.orderId, {
+  @OneToMany(() => OrderItemEntity, (orderItem) => orderItem.order, {
     cascade: true,
   })
   orderItems: OrderItemEntity[];

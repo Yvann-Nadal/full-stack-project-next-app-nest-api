@@ -20,8 +20,8 @@ export class OrderItemEntity {
   createdAt: Date;
 
   @ManyToOne(() => OrderEntity, (order) => order.orderItems)
-  orderId: OrderEntity;
+  order: OrderEntity;
 
   @ManyToOne(() => ProductEntity, (product) => product.orderItems)
-  productId: ProductEntity;
+  product: ProductEntity;
 }
